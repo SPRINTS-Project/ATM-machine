@@ -33,7 +33,7 @@
 
 
 /**********************************  section 4: Data Type Declarations  ******************************************/
-#if 0
+
 typedef unsigned char         uint8_t;          /*           0 .. 255             */
 typedef signed char           sint8_t;          /*        -128 .. +127            */
 typedef unsigned short        uint16_t;         /*           0 .. 65535           */
@@ -44,8 +44,6 @@ typedef unsigned long long    uint64_t;         /*       0..18446744073709551615
 typedef signed long long      sint64_t;
 typedef float                 float32_t;
 typedef double                float64_t;
-#endif
-
 
 typedef enum{
 	E_NOT_OK = 0,     

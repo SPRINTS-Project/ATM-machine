@@ -129,6 +129,18 @@
     <Compile Include="MCAL\SPI\SPI.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\usart\usart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\usart\usart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\usart\usart_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\usart\usart_private_regs.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="STD_LIBRARIES\bit_math.h">
       <SubType>compile</SubType>
     </Compile>
@@ -138,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MCAL\" />
+    <Folder Include="MCAL\usart" />
     <Folder Include="MCAL\SPI\" />
     <Folder Include="STD_LIBRARIES\" />
   </ItemGroup>
