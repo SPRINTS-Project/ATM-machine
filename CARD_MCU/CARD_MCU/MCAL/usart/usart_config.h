@@ -1,8 +1,9 @@
 /*
  * usart_config.h
  *
- * Created: 5/4/2023 5:19:37 PM
- *  Author: Mcs
+ * Created: 5/1/2023 5:19:37 PM
+ *  Author: Mohamed Abdel-Wahab
+ *	EMAIL : mohamedhegay22@gmail.com
  */ 
 
 
