@@ -5,6 +5,7 @@
  *  Author: Arafa
  */ 
 
+#if 0
 
 #ifndef SPI_H_
 #define SPI_H_
@@ -178,4 +179,7 @@ SPIErrorsType spi_read(spi_slave_config_t *spi_slave_config, uint8_t *data);
 *
 */
 SPIErrorsType spi_write_read(spi_slave_config_t *spi_slave_config, uint8_t *transmited_data, uint8_t *recieved_data);
+
+#endif
+
 #endif /* SPI_H_ */

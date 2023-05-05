@@ -41,16 +41,14 @@ u8_usartErorrState_t USART_init(const st_usart_config_t *stPtr_a_usartConfig)
 		switch(stPtr_a_usartConfig->usartMode)
 		{
 			case USART_ASYNCHRONOUS_NORMAL_SPEED_MODE :
-				f32_l_baudRatePrescaler = ( ( F_CPU / (stPtr_a_usartConfig->usartBaudRate) * 16.0) ) - 1;
-				
-				 UBRRL = (uint8_t)((uint32_t)f32_l_baudRatePrescaler);
+				f32_l_baudRatePrescaler =  ( F_CPU / ((stPtr_a_usartConfig->usartBaudRate) * 16.0))  - 1;
 				 UBRRH = (uint8_t)(((uint32_t)f32_l_baudRatePrescaler) >> 8);
+				 UBRRL = (uint8_t)((uint32_t)f32_l_baudRatePrescaler);	
 				break;
 			case USART_ASYNCHRONOUS_DOUBLE_SPEED_MODE :
-				f32_l_baudRatePrescaler = ( ( F_CPU / (stPtr_a_usartConfig->usartBaudRate) * 8.0) ) - 1;
-				UBRRL = (uint8_t)((uint32_t)f32_l_baudRatePrescaler);
+				f32_l_baudRatePrescaler =  ( F_CPU / ((stPtr_a_usartConfig->usartBaudRate) * 8.0) ) - 1;
 				UBRRH = (uint8_t)(((uint32_t)f32_l_baudRatePrescaler) >> 8);
-				
+				UBRRL = (uint8_t)((uint32_t)f32_l_baudRatePrescaler);	
 				break;		
 			default:
 				l_ret = USART_E_NOK;
@@ -137,7 +135,9 @@ u8_usartErorrState_t USART_init(const st_usart_config_t *stPtr_a_usartConfig)
 		{
 			//do nothing
 		}
+		
 		/*adjust frame format*/
+		
 		//Select Number of stop-bit either one or two
 		switch(stPtr_a_usartConfig->usartStopBitNum)
 		{
@@ -177,27 +177,27 @@ u8_usartErorrState_t USART_init(const st_usart_config_t *stPtr_a_usartConfig)
 			case USART_FIVE_BIT_DATA:
 				CLEAR_BIT(UCSRC,UCSZ0);
 				CLEAR_BIT(UCSRC,UCSZ1);
-				CLEAR_BIT(UCSRC,UCSZ2);
+				CLEAR_BIT(UCSRB,UCSZ2);
 				break;
 			case USART_SIX_BIT_DATA:
 				SET_BIT(UCSRC,UCSZ0);
 				CLEAR_BIT(UCSRC,UCSZ1);
-				CLEAR_BIT(UCSRC,UCSZ2);
+				CLEAR_BIT(UCSRB,UCSZ2);
 				break;
 			case USART_SEVEN_BIT_DATA:
 				CLEAR_BIT(UCSRC,UCSZ0);
 				SET_BIT(UCSRC,UCSZ1);
-				CLEAR_BIT(UCSRC,UCSZ2);
+				CLEAR_BIT(UCSRB,UCSZ2);
 				break;
 			case USART_EIGHT_BIT_DATA:
 				SET_BIT(UCSRC,UCSZ0);
 				SET_BIT(UCSRC,UCSZ1);
-				CLEAR_BIT(UCSRC,UCSZ2);
+				CLEAR_BIT(UCSRB,UCSZ2);
 				break;
 			case USART_NINE_BIT_DATA:
 				SET_BIT(UCSRC,UCSZ0);
 				SET_BIT(UCSRC,UCSZ1);
-				SET_BIT(UCSRC,UCSZ2);
+				SET_BIT(UCSRB,UCSZ2);
 				break;
 			default:
 				l_ret = USART_E_NOK;
@@ -228,7 +228,7 @@ u8_usartErorrState_t USART_sendData(const st_usart_config_t *stPtr_a_usartConfig
 		else if(stPtr_a_usartConfig->usartTxInterrupt==USART_TX_INTERRUPT_ENABLE)
 		{
 			/*when Tx buffer (UDR) is empty and ready for transmitting a new byte so wait until this flag is set to one and will generate an interrupt*/
-			u8_a_data = u8_sg_dataTransimted;
+			u8_sg_dataTransimted = u8_a_data ;
 		}
 		else
 		{

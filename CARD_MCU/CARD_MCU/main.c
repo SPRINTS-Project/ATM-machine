@@ -5,14 +5,34 @@
  * Author : engma
  */ 
 
-#include <avr/io.h>
+//#include <avr/io.h>
+//#include <util/delay.h>
 
-
+#include "MCAL/usart/usart.h"
 int main(void)
 {
+	u8_usartErorrState_t l_ret = USART_E_OK;
+	uint8_t data = 0;
+	st_usart_config_t st_l_usartObj = {
+		.usartBaudRate=9600,
+		.usartDataSize = USART_EIGHT_BIT_DATA,
+		.usartMode = USART_ASYNCHRONOUS_NORMAL_SPEED_MODE,
+		.usartParityBit = USART_DISABLED_PARITY_BIT,
+		.usartRxEnable = USART_RX_ENABLE,
+		.usartTxEnable = USART_TX_ENABLE,
+		.usartRxInterrupt = USART_RX_INTERRUPT_DISABLE,
+		.usartTxInterrupt = USART_TX_INTERRUPT_DISABLE,
+		.usartStopBitNum = USART_ONE_STOP_BIT,
+		};
+		l_ret = USART_init(&st_l_usartObj);
+		//UCSRC = (1<<URSEL) | (3<<UCSZ0);
     /* Replace with your application code */
     while (1) 
     {
+		
+		l_ret |= USART_reciveData(&st_l_usartObj,&data);
+		
+		l_ret |= USART_sendData(&st_l_usartObj,data);
     }
 }
 
