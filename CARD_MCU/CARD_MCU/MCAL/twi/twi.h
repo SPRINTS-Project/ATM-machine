@@ -9,17 +9,14 @@
 #ifndef TWI_H_
 #define TWI_H_
 
-#include "../../STD_LIBRARIES/STD_TYPES.h"
-#include "../../STD_LIBRARIES/bit_math.h"
+#include "twi_config.h"
 
-typedef uint8_t u8_twiErrorType;
-
-#define TWI_ERROR_OK		0x00
-#define TWI_ERROR_NOT_OK	0x01
-
-
-u8_twiErrorType TWI_init();
-u8_twiErrorType TWI_send();
+u8_twiErrorType TWI_init(st_twiConfigType * st_twiConfig);
+u8_twiErrorType TWI_start(void);
+u8_twiErrorType TWI_repeated_start(void);
+u8_twiErrorType TWI_stop(void);
+u8_twiErrorType TWI_wrtie(uint8_t u8_address, uint8_t u8_data);
+u8_twiErrorType TWI_read(uint8_t u8_address, uint8_t* u8_data , uint8_t u8_ack);
 
 
 
