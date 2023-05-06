@@ -97,8 +97,8 @@ typedef struct{
 #define USART_E_NOK      ((u8_usartErorrState_t)0x01)
 
 
-/*AN INDICATION TO TERMINATE RECIEVING BYTES AND STORE IT IN THE CHARCTER ARRAY*/
-#define END_OF_STRING_SYMPOL ((uint8_t)'#')
+/*AN INDICATION TO TERMINATE RECIEVING BYTES AND STORE IT IN THE CHARCTER ARRAY (ASCII OF ENTER)*/
+#define END_OF_STRING_SYMPOL ((uint8_t)0x0D)
 /* ------------------------------------------------------ Macro Like Functions Declarations ---------------------------------------------*/
 
 

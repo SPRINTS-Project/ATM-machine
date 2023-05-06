@@ -9,10 +9,11 @@
 //#include <util/delay.h>
 
 #include "MCAL/usart/usart.h"
+uint8_t data[6] ;
 int main(void)
 {
 	u8_usartErorrState_t l_ret = USART_E_OK;
-	uint8_t data = 0;
+
 	st_usart_config_t st_l_usartObj = {
 		.usartBaudRate=9600,
 		.usartDataSize = USART_EIGHT_BIT_DATA,
@@ -30,9 +31,9 @@ int main(void)
     while (1) 
     {
 		
-		l_ret |= USART_reciveData(&st_l_usartObj,&data);
+		l_ret |= USART_reciveString(&st_l_usartObj,data);
 		
-		l_ret |= USART_sendData(&st_l_usartObj,data);
+		l_ret |= USART_sendString(&st_l_usartObj,data);
     }
 }
 

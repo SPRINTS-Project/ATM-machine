@@ -36,7 +36,7 @@
 
 typedef unsigned char         uint8_t;          /*           0 .. 255             */
 typedef signed char           sint8_t;          /*        -128 .. +127            */
-typedef unsigned short        uint16_t;         /*           0 .. 65535           */
+//typedef unsigned short        uint16_t;         /*           0 .. 65535           */
 typedef signed short          sint16_t;         /*      -32768 .. +32767          */
 typedef unsigned long         uint32_t;         /*           0 .. 4294967295      */
 typedef signed long           sint32_t;         /* -2147483648 .. +2147483647     */
