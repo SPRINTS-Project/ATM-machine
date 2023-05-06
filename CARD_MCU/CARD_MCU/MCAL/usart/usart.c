@@ -309,7 +309,7 @@ u8_usartErorrState_t USART_reciveString(const st_usart_config_t *stPtr_a_usartCo
 				 l_ret = USART_reciveData(stPtr_a_usartConfig,&u8Arr_a_stringOfData[u8_l_index]);
 				 if(u8Arr_a_stringOfData[u8_l_index] == END_OF_STRING_SYMPOL)
 				 {
-					 u8_l_breakloopFalg = 1;
+					 u8_l_breakloopFalg++;
 					 u8Arr_a_stringOfData[u8_l_index] = '\0';	 
 				 }
 				 else
