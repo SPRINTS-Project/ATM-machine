@@ -8,11 +8,11 @@
 
 #ifndef SPI_H_
 #define SPI_H_
-#include "../DIO/DIO.h"
+#include "../dio/dio.h"
 #include "../../STD_LIBRARIES/bit_math.h"
 #include "../../STD_LIBRARIES/STD_TYPES.h"
 
-#define SPI_PORT	PORTB_INDEX
+#define SPI_PORT	portb
 #define SPI_SS		pin4
 #define SPI_MOSI	pin5
 #define SPI_MISO	pin6

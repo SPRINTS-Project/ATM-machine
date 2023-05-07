@@ -9,12 +9,14 @@
 //#include <util/delay.h>
 
 #include "MCAL/twi/twi.h"
+#include "MCAL/SPI/SPI.h"
 #include <util/delay.h>
 
-
+spi_config_t spi_config;
+uint8_t data =0;
 int main(void)
 {
-	DDRA = 0xff;
+	/*DDRA = 0xff;
 	DDRB = 0xff;
 	DDRD = 0xff;
 	st_twiConfigType x;
@@ -29,11 +31,20 @@ int main(void)
 		TWI_wrtie(0x10+i,i+1);
 		PORTD = TWI_stop();
 		_delay_ms(2000);
-	}
+	}*/
     /* Replace with your application code */
+	spi_config.spi_interrupt_config = SPI_INT_DISABLE;
+	spi_config.spi_state_config = SPI_ENABLE;
+	spi_config.spi_data_order_config = SPI_MSB;
+	spi_config.spi_mode_config = SPI_SLAVE;
+	spi_config.spi_polarity_config = SPI_IDLE_LOW;
+	spi_config.spi_chpa_config = SPI_SAMLING_ON_LEADING_EDGE;
+	spi_config.spi_prescaller_config = SPI_PRESCALER_4;
+	spi_init(&spi_config);
     while (1) 
     {
-		
+		spi_write(&data);
+		data++;
 		
     }
 }
