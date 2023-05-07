@@ -8,32 +8,33 @@
 //#include <avr/io.h>
 //#include <util/delay.h>
 
-#include "MCAL/usart/usart.h"
-uint8_t data[6] ;
+#include "MCAL/twi/twi.h"
+#include <util/delay.h>
+
+
 int main(void)
 {
-	u8_usartErorrState_t l_ret = USART_E_OK;
-
-	st_usart_config_t st_l_usartObj = {
-		.usartBaudRate=9600,
-		.usartDataSize = USART_EIGHT_BIT_DATA,
-		.usartMode = USART_ASYNCHRONOUS_NORMAL_SPEED_MODE,
-		.usartParityBit = USART_DISABLED_PARITY_BIT,
-		.usartRxEnable = USART_RX_ENABLE,
-		.usartTxEnable = USART_TX_ENABLE,
-		.usartRxInterrupt = USART_RX_INTERRUPT_DISABLE,
-		.usartTxInterrupt = USART_TX_INTERRUPT_DISABLE,
-		.usartStopBitNum = USART_ONE_STOP_BIT,
-		};
-		l_ret = USART_init(&st_l_usartObj);
-		//UCSRC = (1<<URSEL) | (3<<UCSZ0);
+	DDRA = 0xff;
+	DDRB = 0xff;
+	DDRD = 0xff;
+	st_twiConfigType x;
+	x.u8_a_clock = 400;
+	x.u8_a_prescaler = TWI_PRESCALER_1;
+	TWI_init(&x);
+	for (int i = 0 ; i <10 ; i+=2)
+	{
+		PORTA = TWI_start();
+		PORTB = TWI_wrtie(0x10,i);
+		TWI_repeated_start();
+		TWI_wrtie(0x10+i,i+1);
+		PORTD = TWI_stop();
+		_delay_ms(2000);
+	}
     /* Replace with your application code */
     while (1) 
     {
 		
-		l_ret |= USART_reciveString(&st_l_usartObj,data);
 		
-		l_ret |= USART_sendString(&st_l_usartObj,data);
     }
 }
 

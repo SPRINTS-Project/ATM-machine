@@ -4,7 +4,11 @@
 
 main.c
 
+MCAL\dio\dio.c
+
 MCAL\SPI\SPI.c
+
+MCAL\twi\twi.c
 
 MCAL\usart\usart.c
 

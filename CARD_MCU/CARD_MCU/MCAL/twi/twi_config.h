@@ -36,7 +36,7 @@ typedef struct{
 } st_twiConfigType;
 
 
-#define BIT_RATE(SCL,Prescaler)			((F_CPU/SCL)-16)/(2*pow(4,prescaler))
+#define BIT_RATE(SCL,Prescaler)			((F_CPU/SCL)-16)/(2*pow(4,Prescaler))
 
 
 
