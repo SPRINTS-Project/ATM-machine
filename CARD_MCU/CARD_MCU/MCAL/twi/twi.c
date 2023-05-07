@@ -29,7 +29,7 @@ u8_twiErrorType TWI_init(st_twiConfigType * st_twiConfig)
 		u8_ret_val = TWI_ERROR_NOT_OK;
 	}
 	else{
-		if ((st_twiConfig->u8_a_clock) == NULL)
+		if ((st_twiConfig->u16_a_clock) == 0 || (st_twiConfig->u16_a_clock) > 400)
 		{
 			u8_ret_val = TWI_ERROR_NOT_OK;
 		}
@@ -37,7 +37,7 @@ u8_twiErrorType TWI_init(st_twiConfigType * st_twiConfig)
 			// Initialize TWI driver
 			TWSR = 0x00;	// Clear status register
 			TWSR |= st_twiConfig->u8_a_prescaler;		// Set prescaler 
-			TWBR = BIT_RATE(st_twiConfig->u8_a_clock , st_twiConfig->u8_a_prescaler);	// Set bit rate
+			TWBR = BIT_RATE(st_twiConfig->u16_a_clock , st_twiConfig->u8_a_prescaler);	// Set bit rate
 			u8_gs_twi_state = INIT;
 		}
 	}
