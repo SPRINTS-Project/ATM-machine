@@ -18,7 +18,7 @@ int main(void)
 	DDRB = 0xff;
 	DDRD = 0xff;
 	st_twiConfigType x;
-	x.u8_a_clock = 400;
+	x.u16_a_clock = 400;
 	x.u8_a_prescaler = TWI_PRESCALER_1;
 	TWI_init(&x);
 	for (int i = 0 ; i <10 ; i+=2)

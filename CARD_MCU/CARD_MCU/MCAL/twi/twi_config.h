@@ -32,7 +32,7 @@ typedef uint8_t u8_twiPrescalerType;
 
 typedef struct{
 	u8_twiPrescalerType u8_a_prescaler;
-	uint8_t u8_a_clock;
+	uint16_t u16_a_clock;
 } st_twiConfigType;
 
 
