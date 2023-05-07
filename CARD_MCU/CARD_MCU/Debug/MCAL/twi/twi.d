@@ -1,7 +1,7 @@
-main.d main.o: .././main.c .././MCAL/twi/twi.h .././MCAL/twi/twi_config.h \
- .././MCAL/twi/../../STD_LIBRARIES/STD_TYPES.h \
- .././MCAL/twi/../../STD_LIBRARIES/bit_math.h \
- .././MCAL/twi/../../STD_LIBRARIES/std_types.h \
+MCAL/twi/twi.d MCAL/twi/twi.o: ../MCAL/twi/twi.c ../MCAL/twi/twi.h \
+ ../MCAL/twi/twi_config.h ../MCAL/twi/../../STD_LIBRARIES/STD_TYPES.h \
+ ../MCAL/twi/../../STD_LIBRARIES/bit_math.h \
+ ../MCAL/twi/../../STD_LIBRARIES/std_types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -13,19 +13,17 @@ main.d main.o: .././main.c .././MCAL/twi/twi.h .././MCAL/twi/twi_config.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
 
-.././MCAL/twi/twi.h:
+../MCAL/twi/twi.h:
 
-.././MCAL/twi/twi_config.h:
+../MCAL/twi/twi_config.h:
 
-.././MCAL/twi/../../STD_LIBRARIES/STD_TYPES.h:
+../MCAL/twi/../../STD_LIBRARIES/STD_TYPES.h:
 
-.././MCAL/twi/../../STD_LIBRARIES/bit_math.h:
+../MCAL/twi/../../STD_LIBRARIES/bit_math.h:
 
-.././MCAL/twi/../../STD_LIBRARIES/std_types.h:
+../MCAL/twi/../../STD_LIBRARIES/std_types.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -50,7 +48,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:

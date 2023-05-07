@@ -136,10 +136,28 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\dio\dio.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\dio\dio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\dio\dio_types.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\SPI\SPI.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\SPI\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\twi\twi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\twi\twi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\twi\twi_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\usart\usart.c">
@@ -163,6 +181,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MCAL\" />
+    <Folder Include="MCAL\dio\" />
+    <Folder Include="MCAL\twi" />
     <Folder Include="MCAL\usart" />
     <Folder Include="MCAL\SPI\" />
     <Folder Include="STD_LIBRARIES\" />
