@@ -8,45 +8,33 @@
 //#include <avr/io.h>
 //#include <util/delay.h>
 
-#include "MCAL/twi/twi.h"
-#include "MCAL/SPI/SPI.h"
-#include <util/delay.h>
+#include "MCAL/usart/usart.h"
 
-spi_config_t spi_config;
-uint8_t data =0;
+uint8_t data[6] ;
 int main(void)
 {
-	DDRA = 0xff;
-	DDRB = 0xff;
-	DDRD = 0xff;
-	st_twiConfigType x;
-	x.u16_a_clock = 400;
-	x.u8_a_prescaler = TWI_PRESCALER_1;
-	TWI_init(&x);
-	for (int i = 0 ; i <10 ; i+=2)
-	{
-		PORTA = TWI_start();
-		PORTA = TWI_setAddress(0x10,WRITE);
-		PORTB = TWI_wrtie(i);
-		TWI_repeated_start();
-		TWI_wrtie(i+1);
-		PORTD = TWI_stop();
-		_delay_ms(2000);
-	}
+	u8_usartErorrState_t l_ret = USART_E_OK;
+
+	st_usart_config_t st_l_usartObj = {
+		.usartBaudRate=9600,
+		.usartDataSize = USART_EIGHT_BIT_DATA,
+		.usartMode = USART_ASYNCHRONOUS_NORMAL_SPEED_MODE,
+		.usartParityBit = USART_DISABLED_PARITY_BIT,
+		.usartRxEnable = USART_RX_ENABLE,
+		.usartTxEnable = USART_TX_ENABLE,
+		.usartRxInterrupt = USART_RX_INTERRUPT_DISABLE,
+		.usartTxInterrupt = USART_TX_INTERRUPT_DISABLE,
+		.usartStopBitNum = USART_ONE_STOP_BIT,
+		};
+		l_ret = USART_init(&st_l_usartObj);
+		//UCSRC = (1<<URSEL) | (3<<UCSZ0);
     /* Replace with your application code */
-	/*spi_config.spi_interrupt_config = SPI_INT_DISABLE;
-	spi_config.spi_state_config = SPI_ENABLE;
-	spi_config.spi_data_order_config = SPI_MSB;
-	spi_config.spi_mode_config = SPI_SLAVE;
-	spi_config.spi_polarity_config = SPI_IDLE_LOW;
-	spi_config.spi_chpa_config = SPI_SAMLING_ON_LEADING_EDGE;
-	spi_config.spi_prescaller_config = SPI_PRESCALER_4;
-	spi_init(&spi_config);*/
     while (1) 
     {
-		//spi_write(&data);
-		//data++;
 		
+		l_ret |= USART_reciveString(&st_l_usartObj,data);
+		
+		l_ret |= USART_sendString(&st_l_usartObj,data);
     }
 }
 

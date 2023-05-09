@@ -1,70 +1,17 @@
-main.d main.o: .././main.c .././MCAL/twi/twi.h .././MCAL/twi/twi_config.h \
- .././MCAL/twi/../../STD_LIBRARIES/STD_TYPES.h \
- .././MCAL/twi/../../STD_LIBRARIES/bit_math.h \
- .././MCAL/twi/../../STD_LIBRARIES/std_types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
- C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include/avr/iom32.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././MCAL/SPI/SPI.h .././MCAL/SPI/../DIO/DIO.h \
- .././MCAL/SPI/../DIO/dio_types.h \
- .././MCAL/SPI/../../STD_LIBRARIES/bit_math.h \
- .././MCAL/SPI/../../STD_LIBRARIES/STD_TYPES.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h
+main.d main.o: .././main.c .././MCAL/usart/usart.h \
+ .././MCAL/usart/../../STD_LIBRARIES/STD_TYPES.h \
+ .././MCAL/usart/../../STD_LIBRARIES/bit_math.h \
+ .././MCAL/usart/../../STD_LIBRARIES/std_types.h \
+ .././MCAL/usart/usart_private_regs.h .././MCAL/usart/usart_config.h
 
-.././MCAL/twi/twi.h:
+.././MCAL/usart/usart.h:
 
-.././MCAL/twi/twi_config.h:
+.././MCAL/usart/../../STD_LIBRARIES/STD_TYPES.h:
 
-.././MCAL/twi/../../STD_LIBRARIES/STD_TYPES.h:
+.././MCAL/usart/../../STD_LIBRARIES/bit_math.h:
 
-.././MCAL/twi/../../STD_LIBRARIES/bit_math.h:
+.././MCAL/usart/../../STD_LIBRARIES/std_types.h:
 
-.././MCAL/twi/../../STD_LIBRARIES/std_types.h:
+.././MCAL/usart/usart_private_regs.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
-
-C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include/avr/iom32.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
-
-.././MCAL/SPI/SPI.h:
-
-.././MCAL/SPI/../DIO/DIO.h:
-
-.././MCAL/SPI/../DIO/dio_types.h:
-
-.././MCAL/SPI/../../STD_LIBRARIES/bit_math.h:
-
-.././MCAL/SPI/../../STD_LIBRARIES/STD_TYPES.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
+.././MCAL/usart/usart_config.h:
