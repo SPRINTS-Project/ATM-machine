@@ -187,7 +187,7 @@ ISR(USART_RXC_vect)
 
 	u8_sg_dataRecieved= UDR;
  100:	8c b1       	in	r24, 0x0c	; 12
- 102:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 102:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
 }
  106:	8f 91       	pop	r24
  108:	0f 90       	pop	r0
@@ -863,7 +863,7 @@ u8_usartErorrState_t USART_reciveData(const st_usart_config_t *stPtr_a_usartConf
 		{
 			/*RXC flag is set when the UART receive data so wait until this flag is set to one and will generate an interrupt*/
 			*u8Ptr_a_data = u8_sg_dataRecieved;
- 3f6:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 3f6:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <_edata>
  3fa:	fb 01       	movw	r30, r22
  3fc:	80 83       	st	Z, r24
 }

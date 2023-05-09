@@ -67,18 +67,20 @@ Discarded input sections
  .bss           0x00000000        0x0 ECUAL/eeprom/eeprom.o
  .text.EEPROM_init
                 0x00000000       0x1c ECUAL/eeprom/eeprom.o
+ .text.EEPROM_writeByte
+                0x00000000       0x4c ECUAL/eeprom/eeprom.o
  .bss.st_sg_twiConfigObj
                 0x00000000        0x3 ECUAL/eeprom/eeprom.o
- .debug_info    0x00000000      0x155 ECUAL/eeprom/eeprom.o
- .debug_abbrev  0x00000000       0xc7 ECUAL/eeprom/eeprom.o
- .debug_loc     0x00000000       0xab ECUAL/eeprom/eeprom.o
+ .debug_info    0x00000000      0x222 ECUAL/eeprom/eeprom.o
+ .debug_abbrev  0x00000000       0xfb ECUAL/eeprom/eeprom.o
+ .debug_loc     0x00000000      0x19b ECUAL/eeprom/eeprom.o
  .debug_aranges
-                0x00000000       0x20 ECUAL/eeprom/eeprom.o
- .debug_ranges  0x00000000       0x10 ECUAL/eeprom/eeprom.o
- .debug_line    0x00000000      0x143 ECUAL/eeprom/eeprom.o
- .debug_str     0x00000000      0x24f ECUAL/eeprom/eeprom.o
+                0x00000000       0x28 ECUAL/eeprom/eeprom.o
+ .debug_ranges  0x00000000       0x18 ECUAL/eeprom/eeprom.o
+ .debug_line    0x00000000      0x177 ECUAL/eeprom/eeprom.o
+ .debug_str     0x00000000      0x2a4 ECUAL/eeprom/eeprom.o
  .comment       0x00000000       0x31 ECUAL/eeprom/eeprom.o
- .debug_frame   0x00000000       0x24 ECUAL/eeprom/eeprom.o
+ .debug_frame   0x00000000       0x48 ECUAL/eeprom/eeprom.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
@@ -141,22 +143,24 @@ Discarded input sections
                 0x00000000       0x26 MCAL/twi/twi.o
  .text.TWI_stop
                 0x00000000       0x14 MCAL/twi/twi.o
+ .text.TWI_setAddress
+                0x00000000       0x3e MCAL/twi/twi.o
  .text.TWI_wrtie
-                0x00000000       0x5a MCAL/twi/twi.o
+                0x00000000       0x34 MCAL/twi/twi.o
  .text.TWI_read
-                0x00000000       0x78 MCAL/twi/twi.o
+                0x00000000       0x46 MCAL/twi/twi.o
  .bss.u8_gs_twi_state
                 0x00000000        0x1 MCAL/twi/twi.o
- .debug_info    0x00000000      0x314 MCAL/twi/twi.o
- .debug_abbrev  0x00000000      0x113 MCAL/twi/twi.o
- .debug_loc     0x00000000      0x3ae MCAL/twi/twi.o
+ .debug_info    0x00000000      0x330 MCAL/twi/twi.o
+ .debug_abbrev  0x00000000       0xf7 MCAL/twi/twi.o
+ .debug_loc     0x00000000      0x348 MCAL/twi/twi.o
  .debug_aranges
-                0x00000000       0x50 MCAL/twi/twi.o
- .debug_ranges  0x00000000       0x40 MCAL/twi/twi.o
- .debug_line    0x00000000      0x322 MCAL/twi/twi.o
- .debug_str     0x00000000      0x28b MCAL/twi/twi.o
+                0x00000000       0x58 MCAL/twi/twi.o
+ .debug_ranges  0x00000000       0x48 MCAL/twi/twi.o
+ .debug_line    0x00000000      0x32f MCAL/twi/twi.o
+ .debug_str     0x00000000      0x2b2 MCAL/twi/twi.o
  .comment       0x00000000       0x31 MCAL/twi/twi.o
- .debug_frame   0x00000000       0xd0 MCAL/twi/twi.o
+ .debug_frame   0x00000000       0xc8 MCAL/twi/twi.o
  .text          0x00000000        0x0 MCAL/usart/usart.o
  .data          0x00000000        0x0 MCAL/usart/usart.o
  .bss           0x00000000        0x0 MCAL/usart/usart.o
