@@ -21,22 +21,27 @@ typedef uint8_t u8_eepromErorrState_t;
 
 /* ------------------------------------------------------ Macro Declarations ------------------------------------------------------------*/
 
+
+
+#define  EEPROM_CONTROL_BYTE_WRITE_OP		()
 /*The Error state of The EEPROM*/
 #define EEPROM_E_OK		 ((u8_eepromErorrState_t)0x00)
 #define EEPROM_E_NOK     ((u8_eepromErorrState_t)0x01)
 /* ------------------------------------------------------ Macro Like Functions Declarations ---------------------------------------------*/
 
-
-
+/* Send the device address, we need to get A8 A9 A10 address bits from the memory location address and R/W=0 (write) [device_add + page_add + control_bit]*/
+#define  GET_CONTROL_BYTE_WITH_WRITE_OP(ADDRESS)		(0xA0 | (((uint16_t)ADDRESS & 0x0700)>>7))
+/* Send the device address, we need to get A8 A9 A10 address bits from the memory location address and R/W=1 (read) [device_add + page_add + control_bit]*/
+#define  GET_CONTROL_BYTE_WITH_READ_OP(ADDRESS)			(0xA0 | (((uint16_t)ADDRESS & 0x0780)>>7))
 
 
 
 
 /* ------------------------------------------------- Software Interfaces Declarations ---------------------------------------------------*/
 
-u8_eepromErorrState_t EEPROM_init(u8_twiPrescalerType u8_a_prescaler, uint8_t u8_a_clock);
+u8_eepromErorrState_t EEPROM_init(u8_twiPrescalerType u8_a_twiPrescaler, uint8_t u8_a_twiClock);
 
-u8_eepromErorrState_t EEPROM_writeByte(uint16_t u16_a_add,uint8_t u8_a_data);
+u8_eepromErorrState_t EEPROM_writeByte(uint16_t u16_a_address,uint8_t u8_a_data);
 
 u8_eepromErorrState_t EEPROM_readByte(uint16_t u16_a_add,uint8_t* u8Ptr_a_data);
 

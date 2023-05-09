@@ -51,7 +51,7 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
-                              main.o (__do_clear_bss)
+                              ECUAL/eeprom/eeprom.o (__do_clear_bss)
 
 Allocating common symbols
 Common symbol       size              file
@@ -66,15 +66,17 @@ Discarded input sections
  .data          0x00000000        0x0 ECUAL/eeprom/eeprom.o
  .bss           0x00000000        0x0 ECUAL/eeprom/eeprom.o
  .text.EEPROM_init
-                0x00000000        0x2 ECUAL/eeprom/eeprom.o
- .debug_info    0x00000000       0xdb ECUAL/eeprom/eeprom.o
- .debug_abbrev  0x00000000       0x80 ECUAL/eeprom/eeprom.o
- .debug_loc     0x00000000       0x21 ECUAL/eeprom/eeprom.o
+                0x00000000       0x1c ECUAL/eeprom/eeprom.o
+ .bss.st_sg_twiConfigObj
+                0x00000000        0x3 ECUAL/eeprom/eeprom.o
+ .debug_info    0x00000000      0x155 ECUAL/eeprom/eeprom.o
+ .debug_abbrev  0x00000000       0xc7 ECUAL/eeprom/eeprom.o
+ .debug_loc     0x00000000       0xab ECUAL/eeprom/eeprom.o
  .debug_aranges
                 0x00000000       0x20 ECUAL/eeprom/eeprom.o
  .debug_ranges  0x00000000       0x10 ECUAL/eeprom/eeprom.o
- .debug_line    0x00000000       0xb8 ECUAL/eeprom/eeprom.o
- .debug_str     0x00000000      0x1f8 ECUAL/eeprom/eeprom.o
+ .debug_line    0x00000000      0x143 ECUAL/eeprom/eeprom.o
+ .debug_str     0x00000000      0x24f ECUAL/eeprom/eeprom.o
  .comment       0x00000000       0x31 ECUAL/eeprom/eeprom.o
  .debug_frame   0x00000000       0x24 ECUAL/eeprom/eeprom.o
  .text          0x00000000        0x0 main.o
