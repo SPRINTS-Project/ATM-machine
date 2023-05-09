@@ -29,7 +29,7 @@ u8_twiErrorType TWI_init(st_twiConfigType * st_twiConfig)
 		u8_ret_val = TWI_ERROR_NOT_OK;
 	}
 	else{
-		if (st_twiConfig->u8_a_clock == NULL)
+		if ((st_twiConfig->u16_a_clock) == 0 || (st_twiConfig->u16_a_clock) > 400)
 		{
 			u8_ret_val = TWI_ERROR_NOT_OK;
 		}
@@ -37,7 +37,7 @@ u8_twiErrorType TWI_init(st_twiConfigType * st_twiConfig)
 			// Initialize TWI driver
 			TWSR = 0x00;	// Clear status register
 			TWSR |= st_twiConfig->u8_a_prescaler;		// Set prescaler 
-			TWBR = BIT_RATE(st_twiConfig->u8_a_clock , st_twiConfig->u8_a_prescaler);	// Set bit rate
+			TWBR = BIT_RATE(st_twiConfig->u16_a_clock , st_twiConfig->u8_a_prescaler);	// Set bit rate
 			u8_gs_twi_state = INIT;
 		}
 	}
@@ -146,11 +146,11 @@ u8_twiErrorType TWI_read(uint8_t u8_address, uint8_t* u8_data , uint8_t u8_ack)
 		while ((TWCR & (1<<TWINT))==0);
 		if (TWI_get_status() == SLA_R_ACK_STATE || TWI_get_status() == SLA_R_NACK_STATE)
 		{
-			if (u8_ack = ACK)
+			if (u8_ack == ACK)
 			{
 				TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWEA);
 			}
-			else if (u8_ack = NACK)
+			else if (u8_ack == NACK)
 			{
 				TWCR = (1<<TWINT)|(1<<TWEN);
 			}

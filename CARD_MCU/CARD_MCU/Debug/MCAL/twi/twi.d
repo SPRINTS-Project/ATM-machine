@@ -1,5 +1,7 @@
-MCAL/SPI/SPI.d MCAL/SPI/SPI.o: ../MCAL/SPI/SPI.c ../MCAL/SPI/SPI.h \
- ../MCAL/SPI/../DIO/DIO.h \
+MCAL/twi/twi.d MCAL/twi/twi.o: ../MCAL/twi/twi.c ../MCAL/twi/twi.h \
+ ../MCAL/twi/twi_config.h ../MCAL/twi/../../STD_LIBRARIES/STD_TYPES.h \
+ ../MCAL/twi/../../STD_LIBRARIES/bit_math.h \
+ ../MCAL/twi/../../STD_LIBRARIES/std_types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -11,14 +13,17 @@ MCAL/SPI/SPI.d MCAL/SPI/SPI.o: ../MCAL/SPI/SPI.c ../MCAL/SPI/SPI.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- ../MCAL/SPI/../DIO/dio_types.h \
- ../MCAL/SPI/../../STD_LIBRARIES/bit_math.h \
- ../MCAL/SPI/../../STD_LIBRARIES/std_types.h \
- ../MCAL/SPI/../../STD_LIBRARIES/STD_TYPES.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
 
-../MCAL/SPI/SPI.h:
+../MCAL/twi/twi.h:
 
-../MCAL/SPI/../DIO/DIO.h:
+../MCAL/twi/twi_config.h:
+
+../MCAL/twi/../../STD_LIBRARIES/STD_TYPES.h:
+
+../MCAL/twi/../../STD_LIBRARIES/bit_math.h:
+
+../MCAL/twi/../../STD_LIBRARIES/std_types.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -42,10 +47,4 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-../MCAL/SPI/../DIO/dio_types.h:
-
-../MCAL/SPI/../../STD_LIBRARIES/bit_math.h:
-
-../MCAL/SPI/../../STD_LIBRARIES/std_types.h:
-
-../MCAL/SPI/../../STD_LIBRARIES/STD_TYPES.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:

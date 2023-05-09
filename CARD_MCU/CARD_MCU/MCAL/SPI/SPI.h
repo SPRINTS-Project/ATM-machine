@@ -5,18 +5,18 @@
  *  Author: Arafa
  */ 
 
-#if 0
 
 #ifndef SPI_H_
 #define SPI_H_
 #include "../DIO/DIO.h"
 #include "../../STD_LIBRARIES/bit_math.h"
+#include "../../STD_LIBRARIES/STD_TYPES.h"
 
 #define SPI_PORT	PORTB_INDEX
-#define SPI_SS		PIN_4
-#define SPI_MOSI	PIN_5
-#define SPI_MISO	PIN_6
-#define SPI_SCK		PIN_7
+#define SPI_SS		pin4
+#define SPI_MOSI	pin5
+#define SPI_MISO	pin6
+#define SPI_SCK		pin7
 
 
 #define SPCR_ADD	(*((volatile uint8_t *) 0x2D)) 
@@ -31,7 +31,7 @@
 #define SPSR_ADD	(*((volatile uint8_t *) 0x2E)) 
 #define SPI_SPIF	7
 #define SPI_WCOL	6
-#define SPI_SPR2X		0
+#define SPI_SPR2X	0
 
 #define SPDR_ADD	(*((volatile uint8_t *) 0x2F))
 
@@ -88,8 +88,8 @@ typedef struct{
 }spi_config_t;
 
 typedef struct{
-	port_index_t spi_slave_port;
-	pin_index_t	spi_slave_pin;
+	en_dioPortsType spi_slave_port;
+	en_dioPinsType	spi_slave_pin;
 }spi_slave_config_t;
 
 
@@ -132,7 +132,7 @@ SPIErrorsType spi_slave_CE_init(spi_slave_config_t *spi_slave_config);
 *-this function used to write just one byte and discard received date
 *
 *   -Input parameters -
-*-1-it holds SPI slave pin configuration  (spi_slave_config_t *spi_slave_config)
+*-1-it holds the transmited data  (uint8_t *data)
 *
 *   -Return-
 *   SPIErrorsType
@@ -142,13 +142,13 @@ SPIErrorsType spi_slave_CE_init(spi_slave_config_t *spi_slave_config);
 *-2- (SPI_E_OK) otherwise
 *
 */
-SPIErrorsType spi_write(spi_slave_config_t *spi_slave_config, uint8_t *data);
+SPIErrorsType spi_write(uint8_t *data);
 /*
 *   -Description-
 *-this function used to read just one byte and transmit dummy date
 *
-*   -Input parameters -
-*-1-it holds SPI slave pin configuration  (spi_slave_config_t *spi_slave_config)
+*   -output parameters -
+*-1-it holds the received data  (uint8_t *data)
 *
 *   -Return-
 *   SPIErrorsType
@@ -158,15 +158,14 @@ SPIErrorsType spi_write(spi_slave_config_t *spi_slave_config, uint8_t *data);
 *-2- (SPI_E_OK) otherwise
 *
 */
-SPIErrorsType spi_read(spi_slave_config_t *spi_slave_config, uint8_t *data);
+SPIErrorsType spi_read(uint8_t *data);
 
 /*
 *   -Description-
 *-this function used to read just one byte and write one byte 
 *
 *   -Input parameters -
-*-1-it holds SPI slave pin configuration  (spi_slave_config_t *spi_slave_config)
-*-2-it holds the data wants to transmit (uint8_t *transmited_data)
+*-1-it holds the data wants to transmit (uint8_t *transmited_data)
 *   -Output parameters -
 *-1-it holds the received data  (uint8_t *recieved_data)
 *
@@ -178,8 +177,40 @@ SPIErrorsType spi_read(spi_slave_config_t *spi_slave_config, uint8_t *data);
 *-2- (SPI_E_OK) otherwise
 *
 */
-SPIErrorsType spi_write_read(spi_slave_config_t *spi_slave_config, uint8_t *transmited_data, uint8_t *recieved_data);
+SPIErrorsType spi_write_read(uint8_t *transmited_data, uint8_t *recieved_data);
 
-#endif
 
+/*
+*   -Description-
+*-this function used to disable specific slave
+*
+*   -Input parameters -
+*-1-it holds SPI slave pin configuration  (spi_slave_config_t *spi_slave_config)
+*
+*   -Return-
+*   SPIErrorsType
+*
+*   -Return cases-
+*-1- (SPI_E_NOK) if there is something wrong
+*-2- (SPI_E_OK) otherwise
+*
+*/
+SPIErrorsType spi_disable_slave(spi_slave_config_t *spi_slave_config);
+
+/*
+*   -Description-
+*-this function used to enable specific slave
+*
+*   -Input parameters -
+*-1-it holds SPI slave pin configuration  (spi_slave_config_t *spi_slave_config)
+*
+*   -Return-
+*   SPIErrorsType
+*
+*   -Return cases-
+*-1- (SPI_E_NOK) if there is something wrong
+*-2- (SPI_E_OK) otherwise
+*
+*/
+SPIErrorsType spi_enable_slave(spi_slave_config_t *spi_slave_config);
 #endif /* SPI_H_ */

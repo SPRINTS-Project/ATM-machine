@@ -123,6 +123,15 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\dio\dio.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\dio\dio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\dio\dio_types.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\SPI\SPI.c">
       <SubType>compile</SubType>
     </Compile>
@@ -137,9 +146,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Debug\" />
+    <Folder Include="Debug\MCAL\" />
+    <Folder Include="Debug\MCAL\SPI\" />
     <Folder Include="MCAL\" />
+    <Folder Include="MCAL\dio\" />
     <Folder Include="MCAL\SPI\" />
     <Folder Include="STD_LIBRARIES\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug\MCAL\SPI\SPI.d">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\SPI\SPI.o">
+      <SubType>compile</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
