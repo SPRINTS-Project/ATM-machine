@@ -44,7 +44,8 @@ typedef struct{
 #define NACK			0x01
 
 
-
+#define  READ			0x00
+#define  WRITE			0x01
 
 #define START_STATE				0x08
 #define REPEATED_START_STATE	0x10
