@@ -83,9 +83,9 @@ Disassembly of section .text:
   78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 0000007c <main>:
-//#include <util/delay.h>
 
 #include "MCAL/usart/usart.h"
+
 uint8_t data[6] ;
 int main(void)
 {

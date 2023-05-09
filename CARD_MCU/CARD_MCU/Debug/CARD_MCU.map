@@ -44,6 +44,21 @@ Discarded input sections
 
  .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
  .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
+ .text          0x00000000        0x0 ECUAL/eeprom/eeprom.o
+ .data          0x00000000        0x0 ECUAL/eeprom/eeprom.o
+ .bss           0x00000000        0x0 ECUAL/eeprom/eeprom.o
+ .text.EEPROM_init
+                0x00000000        0x2 ECUAL/eeprom/eeprom.o
+ .debug_info    0x00000000       0xdb ECUAL/eeprom/eeprom.o
+ .debug_abbrev  0x00000000       0x80 ECUAL/eeprom/eeprom.o
+ .debug_loc     0x00000000       0x21 ECUAL/eeprom/eeprom.o
+ .debug_aranges
+                0x00000000       0x20 ECUAL/eeprom/eeprom.o
+ .debug_ranges  0x00000000       0x10 ECUAL/eeprom/eeprom.o
+ .debug_line    0x00000000       0xb8 ECUAL/eeprom/eeprom.o
+ .debug_str     0x00000000      0x1f8 ECUAL/eeprom/eeprom.o
+ .comment       0x00000000       0x31 ECUAL/eeprom/eeprom.o
+ .debug_frame   0x00000000       0x24 ECUAL/eeprom/eeprom.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
@@ -149,6 +164,7 @@ user_signatures  0x00850000         0x00000400         rw !x
 Linker script and memory map
 
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
+LOAD ECUAL/eeprom/eeprom.o
 LOAD main.o
 LOAD MCAL/SPI/SPI.o
 LOAD MCAL/usart/usart.o

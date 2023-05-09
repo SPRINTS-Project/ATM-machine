@@ -9,6 +9,7 @@
 //#include <util/delay.h>
 
 #include "MCAL/usart/usart.h"
+
 uint8_t data[6] ;
 int main(void)
 {
