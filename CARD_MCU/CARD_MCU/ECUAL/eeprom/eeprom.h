@@ -30,9 +30,8 @@ typedef uint8_t u8_eepromErorrState_t;
 /* ------------------------------------------------------ Macro Like Functions Declarations ---------------------------------------------*/
 
 /* Send the device address, we need to get A8 A9 A10 address bits from the memory location address and R/W=0 (write) [device_add + page_add + control_bit]*/
-#define  GET_CONTROL_BYTE_WITH_WRITE_OP(ADDRESS)		(0xA0 | (((uint16_t)ADDRESS & 0x0700)>>7))
-/* Send the device address, we need to get A8 A9 A10 address bits from the memory location address and R/W=1 (read) [device_add + page_add + control_bit]*/
-#define  GET_CONTROL_BYTE_WITH_READ_OP(ADDRESS)			(0xA0 | (((uint16_t)ADDRESS & 0x0780)>>7))
+#define  GET_DEVICE_AND_PAGE_ADDRESS(ADDRESS)		(0xA0 | (((uint16_t)ADDRESS & 0x0700)>>7))
+
 
 
 
@@ -43,7 +42,7 @@ u8_eepromErorrState_t EEPROM_init(u8_twiPrescalerType u8_a_twiPrescaler, uint8_t
 
 u8_eepromErorrState_t EEPROM_writeByte(uint16_t u16_a_address,uint8_t u8_a_data);
 
-u8_eepromErorrState_t EEPROM_readByte(uint16_t u16_a_add,uint8_t* u8Ptr_a_data);
+u8_eepromErorrState_t EEPROM_readByte(uint16_t u16_a_address,uint8_t* u8Ptr_a_data);
 
 
 
