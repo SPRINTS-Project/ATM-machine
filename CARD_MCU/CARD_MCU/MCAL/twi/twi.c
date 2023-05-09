@@ -124,15 +124,18 @@ u8_twiErrorType TWI_setAddress(uint8_t u8_address,uint8_t u8_rw)
 			}
 			else{
 				u8_ret_val = TWI_ERROR_NOT_OK;
+				//u8_ret_val = 1;
 			}
 		}
 		else
 		{
 			u8_ret_val = TWI_ERROR_NOT_OK;
+			//u8_ret_val = 2;
 		}
 	}
 	else{
 		u8_ret_val = TWI_ERROR_NOT_OK;
+		//u8_ret_val = 3;
 	}
 	return u8_ret_val;
 }
