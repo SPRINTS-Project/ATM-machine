@@ -137,7 +137,7 @@ u8_twiErrorType TWI_setAddress(uint8_t u8_address,uint8_t u8_rw)
 	return u8_ret_val;
 }
 
-u8_twiErrorType TWI_wrtie(uint8_t u8_address, uint8_t u8_data)
+u8_twiErrorType TWI_wrtie(uint8_t u8_data)
 {
 	u8_twiErrorType u8_ret_val = TWI_ERROR_OK;
 	if (u8_gs_twi_state == INIT)
@@ -158,7 +158,7 @@ u8_twiErrorType TWI_wrtie(uint8_t u8_address, uint8_t u8_data)
 	}
 	return u8_ret_val;
 }
-u8_twiErrorType TWI_read(uint8_t u8_address, uint8_t* u8_data , uint8_t u8_ack)
+u8_twiErrorType TWI_read(uint8_t* u8_data , uint8_t u8_ack)
 {
 	u8_twiErrorType u8_ret_val = TWI_ERROR_OK;
 	if (u8_gs_twi_state == INIT)
