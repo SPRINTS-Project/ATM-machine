@@ -96,22 +96,24 @@ Discarded input sections
                 0x00000000       0x26 MCAL/twi/twi.o
  .text.TWI_stop
                 0x00000000       0x14 MCAL/twi/twi.o
+ .text.TWI_setAddress
+                0x00000000       0x3e MCAL/twi/twi.o
  .text.TWI_wrtie
-                0x00000000       0x5a MCAL/twi/twi.o
+                0x00000000       0x34 MCAL/twi/twi.o
  .text.TWI_read
-                0x00000000       0x78 MCAL/twi/twi.o
+                0x00000000       0x46 MCAL/twi/twi.o
  .bss.u8_gs_twi_state
                 0x00000000        0x1 MCAL/twi/twi.o
- .debug_info    0x00000000      0x314 MCAL/twi/twi.o
- .debug_abbrev  0x00000000      0x113 MCAL/twi/twi.o
- .debug_loc     0x00000000      0x3ae MCAL/twi/twi.o
+ .debug_info    0x00000000      0x330 MCAL/twi/twi.o
+ .debug_abbrev  0x00000000       0xf7 MCAL/twi/twi.o
+ .debug_loc     0x00000000      0x348 MCAL/twi/twi.o
  .debug_aranges
-                0x00000000       0x50 MCAL/twi/twi.o
- .debug_ranges  0x00000000       0x40 MCAL/twi/twi.o
- .debug_line    0x00000000      0x322 MCAL/twi/twi.o
- .debug_str     0x00000000      0x285 MCAL/twi/twi.o
+                0x00000000       0x58 MCAL/twi/twi.o
+ .debug_ranges  0x00000000       0x48 MCAL/twi/twi.o
+ .debug_line    0x00000000      0x32f MCAL/twi/twi.o
+ .debug_str     0x00000000      0x2b2 MCAL/twi/twi.o
  .comment       0x00000000       0x31 MCAL/twi/twi.o
- .debug_frame   0x00000000       0xd0 MCAL/twi/twi.o
+ .debug_frame   0x00000000       0xc8 MCAL/twi/twi.o
  .text          0x00000000        0x0 MCAL/usart/usart.o
  .data          0x00000000        0x0 MCAL/usart/usart.o
  .bss           0x00000000        0x0 MCAL/usart/usart.o
@@ -693,16 +695,16 @@ END GROUP
  .debug_frame   0x00000068       0x9c MCAL/SPI/SPI.o
  .debug_frame   0x00000104       0xfc MCAL/usart/usart.o
 
-.debug_str      0x00000000      0xa18
+.debug_str      0x00000000      0xa7f
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
- .debug_str     0x00000196      0x3dd main.o
-                                0x416 (size before relaxing)
- .debug_str     0x00000573       0xdd MCAL/dio/dio.o
+ .debug_str     0x00000196      0x3f5 main.o
+                                0x42e (size before relaxing)
+ .debug_str     0x0000058b      0x12c MCAL/dio/dio.o
                                 0x24b (size before relaxing)
- .debug_str     0x00000650       0xee MCAL/SPI/SPI.o
+ .debug_str     0x000006b7       0xee MCAL/SPI/SPI.o
                                 0x591 (size before relaxing)
- .debug_str     0x0000073e      0x2da MCAL/usart/usart.o
+ .debug_str     0x000007a5      0x2da MCAL/usart/usart.o
                                 0x44d (size before relaxing)
 
 .debug_loc      0x00000000      0xe73
