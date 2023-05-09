@@ -38,7 +38,7 @@ typedef uint8_t u8_eepromErorrState_t;
 
 /* ------------------------------------------------- Software Interfaces Declarations ---------------------------------------------------*/
 
-u8_eepromErorrState_t EEPROM_init(u8_twiPrescalerType u8_a_twiPrescaler, uint8_t u8_a_twiClock);
+u8_eepromErorrState_t EEPROM_init(u8_twiPrescalerType u8_a_twiPrescaler, uint16_t u8_a_twiClock);
 
 u8_eepromErorrState_t EEPROM_writeByte(uint16_t u16_a_address,uint8_t u8_a_data);
 

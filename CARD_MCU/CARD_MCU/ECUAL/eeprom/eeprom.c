@@ -7,7 +7,7 @@
 #include "eeprom.h"
 
 static st_twiConfigType st_sg_twiConfigObj;
-u8_eepromErorrState_t EEPROM_init(u8_twiPrescalerType u8_a_twiPrescaler, uint8_t u8_a_twiClock)
+u8_eepromErorrState_t EEPROM_init(u8_twiPrescalerType u8_a_twiPrescaler, uint16_t u8_a_twiClock)
 {
 	u8_eepromErorrState_t u8_l_ret = EEPROM_E_OK;
 	if((u8_a_twiPrescaler <TWI_PRESCALER_1) || (u8_a_twiPrescaler > TWI_PRESCALER_64))
