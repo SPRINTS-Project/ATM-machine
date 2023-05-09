@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  00000200  00000000  00000000  00002d50  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000a18  00000000  00000000  00002f50  2**0
+ 10 .debug_str    00000a7f  00000000  00000000  00002f50  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000e73  00000000  00000000  00003968  2**0
+ 11 .debug_loc    00000e73  00000000  00000000  000039cf  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000b0  00000000  00000000  000047db  2**0
+ 12 .debug_ranges 000000b0  00000000  00000000  00004842  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -121,20 +121,10 @@ Disassembly of section .text:
   a8:	f6 cf       	rjmp	.-20     	; 0x96 <main+0x1a>
 
 000000aa <DIO_init>:
-
-
-u8_en_dioErrors DIO_init (en_dioPortsType port, en_dioPinsType pin, u8_en_dioDirType direction)
-{
-	
-	if (pin < DIO_MAX_PINS)
   aa:	68 30       	cpi	r22, 0x08	; 8
   ac:	a0 f5       	brcc	.+104    	; 0x116 <DIO_init+0x6c>
-	{
-		if (port == porta)
   ae:	81 11       	cpse	r24, r1
   b0:	0b c0       	rjmp	.+22     	; 0xc8 <DIO_init+0x1e>
-		{
-			DATA_DIRECTION_PORTA |= direction << pin;
   b2:	8a b3       	in	r24, 0x1a	; 26
   b4:	50 e0       	ldi	r21, 0x00	; 0
   b6:	02 c0       	rjmp	.+4      	; 0xbc <DIO_init+0x12>
@@ -144,15 +134,10 @@ u8_en_dioErrors DIO_init (en_dioPortsType port, en_dioPinsType pin, u8_en_dioDir
   be:	e2 f7       	brpl	.-8      	; 0xb8 <DIO_init+0xe>
   c0:	48 2b       	or	r20, r24
   c2:	4a bb       	out	0x1a, r20	; 26
-			return DIO_E_OK;
   c4:	80 e0       	ldi	r24, 0x00	; 0
   c6:	08 95       	ret
-		}
-		else if (port == portb)
   c8:	81 30       	cpi	r24, 0x01	; 1
   ca:	59 f4       	brne	.+22     	; 0xe2 <DIO_init+0x38>
-		{
-			DATA_DIRECTION_PORTB |= direction << pin;
   cc:	87 b3       	in	r24, 0x17	; 23
   ce:	50 e0       	ldi	r21, 0x00	; 0
   d0:	02 c0       	rjmp	.+4      	; 0xd6 <DIO_init+0x2c>
@@ -162,15 +147,10 @@ u8_en_dioErrors DIO_init (en_dioPortsType port, en_dioPinsType pin, u8_en_dioDir
   d8:	e2 f7       	brpl	.-8      	; 0xd2 <DIO_init+0x28>
   da:	48 2b       	or	r20, r24
   dc:	47 bb       	out	0x17, r20	; 23
-			return DIO_E_OK;
   de:	80 e0       	ldi	r24, 0x00	; 0
   e0:	08 95       	ret
-		}
-		else if (port == portc)
   e2:	82 30       	cpi	r24, 0x02	; 2
   e4:	59 f4       	brne	.+22     	; 0xfc <DIO_init+0x52>
-		{
-			DATA_DIRECTION_PORTC |= direction << pin;
   e6:	84 b3       	in	r24, 0x14	; 20
   e8:	50 e0       	ldi	r21, 0x00	; 0
   ea:	02 c0       	rjmp	.+4      	; 0xf0 <DIO_init+0x46>
@@ -180,15 +160,10 @@ u8_en_dioErrors DIO_init (en_dioPortsType port, en_dioPinsType pin, u8_en_dioDir
   f2:	e2 f7       	brpl	.-8      	; 0xec <DIO_init+0x42>
   f4:	48 2b       	or	r20, r24
   f6:	44 bb       	out	0x14, r20	; 20
-			return DIO_E_OK;
   f8:	80 e0       	ldi	r24, 0x00	; 0
   fa:	08 95       	ret
-		}
-		else if (port == portd)
   fc:	83 30       	cpi	r24, 0x03	; 3
   fe:	69 f4       	brne	.+26     	; 0x11a <DIO_init+0x70>
-		{
-			DATA_DIRECTION_PORTD |= direction << pin;
  100:	81 b3       	in	r24, 0x11	; 17
  102:	50 e0       	ldi	r21, 0x00	; 0
  104:	02 c0       	rjmp	.+4      	; 0x10a <DIO_init+0x60>
@@ -198,49 +173,21 @@ u8_en_dioErrors DIO_init (en_dioPortsType port, en_dioPinsType pin, u8_en_dioDir
  10c:	e2 f7       	brpl	.-8      	; 0x106 <DIO_init+0x5c>
  10e:	48 2b       	or	r20, r24
  110:	41 bb       	out	0x11, r20	; 17
-			return DIO_E_OK;
  112:	80 e0       	ldi	r24, 0x00	; 0
  114:	08 95       	ret
-			return DIO_InvalidPort;
-		}
-		
-	}
-	else{
-		return DIO_InvalidPin;
  116:	81 e0       	ldi	r24, 0x01	; 1
  118:	08 95       	ret
-			DATA_DIRECTION_PORTD |= direction << pin;
-			return DIO_E_OK;
-		}
-		else
-		{
-			return DIO_InvalidPort;
  11a:	82 e0       	ldi	r24, 0x02	; 2
-		
-	}
-	else{
-		return DIO_InvalidPin;
-	}
-}
  11c:	08 95       	ret
 
 0000011e <DIO_writePIN>:
-u8_en_dioErrors DIO_writePIN (en_dioPortsType port, en_dioPinsType pin, u8_en_dioLevelType state)
-{
-	if (pin < DIO_MAX_PINS)
  11e:	68 30       	cpi	r22, 0x08	; 8
  120:	08 f0       	brcs	.+2      	; 0x124 <DIO_writePIN+0x6>
  122:	74 c0       	rjmp	.+232    	; 0x20c <DIO_writePIN+0xee>
-	{
-		if (port == porta)
  124:	81 11       	cpse	r24, r1
  126:	1b c0       	rjmp	.+54     	; 0x15e <DIO_writePIN+0x40>
-		{
-			if (state == STD_HIGH)
  128:	41 30       	cpi	r20, 0x01	; 1
  12a:	61 f4       	brne	.+24     	; 0x144 <DIO_writePIN+0x26>
-			{
-				WR_PORT_A |= (1U << pin);
  12c:	2b b3       	in	r18, 0x1b	; 27
  12e:	81 e0       	ldi	r24, 0x01	; 1
  130:	90 e0       	ldi	r25, 0x00	; 0
@@ -251,19 +198,8 @@ u8_en_dioErrors DIO_writePIN (en_dioPortsType port, en_dioPinsType pin, u8_en_di
  13a:	e2 f7       	brpl	.-8      	; 0x134 <DIO_writePIN+0x16>
  13c:	82 2b       	or	r24, r18
  13e:	8b bb       	out	0x1b, r24	; 27
-			}
-			else{
-				WR_PORT_A &= ~(1U << pin);
-			}
-			return DIO_E_OK;
  140:	80 e0       	ldi	r24, 0x00	; 0
  142:	08 95       	ret
-			if (state == STD_HIGH)
-			{
-				WR_PORT_A |= (1U << pin);
-			}
-			else{
-				WR_PORT_A &= ~(1U << pin);
  144:	2b b3       	in	r18, 0x1b	; 27
  146:	81 e0       	ldi	r24, 0x01	; 1
  148:	90 e0       	ldi	r25, 0x00	; 0
@@ -275,20 +211,12 @@ u8_en_dioErrors DIO_writePIN (en_dioPortsType port, en_dioPinsType pin, u8_en_di
  154:	80 95       	com	r24
  156:	82 23       	and	r24, r18
  158:	8b bb       	out	0x1b, r24	; 27
-			}
-			return DIO_E_OK;
  15a:	80 e0       	ldi	r24, 0x00	; 0
  15c:	08 95       	ret
-		}
-		else if (port == portb)
  15e:	81 30       	cpi	r24, 0x01	; 1
  160:	d9 f4       	brne	.+54     	; 0x198 <DIO_writePIN+0x7a>
-		{
-			if (state == STD_HIGH)
  162:	41 30       	cpi	r20, 0x01	; 1
  164:	61 f4       	brne	.+24     	; 0x17e <DIO_writePIN+0x60>
-			{
-				WR_PORT_B |= (1U << pin);
  166:	28 b3       	in	r18, 0x18	; 24
  168:	81 e0       	ldi	r24, 0x01	; 1
  16a:	90 e0       	ldi	r25, 0x00	; 0
@@ -299,19 +227,8 @@ u8_en_dioErrors DIO_writePIN (en_dioPortsType port, en_dioPinsType pin, u8_en_di
  174:	e2 f7       	brpl	.-8      	; 0x16e <DIO_writePIN+0x50>
  176:	82 2b       	or	r24, r18
  178:	88 bb       	out	0x18, r24	; 24
-			}
-			else{
-				WR_PORT_B &= ~(1U << pin);
-			}
-			return DIO_E_OK;
  17a:	80 e0       	ldi	r24, 0x00	; 0
  17c:	08 95       	ret
-			if (state == STD_HIGH)
-			{
-				WR_PORT_B |= (1U << pin);
-			}
-			else{
-				WR_PORT_B &= ~(1U << pin);
  17e:	28 b3       	in	r18, 0x18	; 24
  180:	81 e0       	ldi	r24, 0x01	; 1
  182:	90 e0       	ldi	r25, 0x00	; 0
@@ -323,20 +240,12 @@ u8_en_dioErrors DIO_writePIN (en_dioPortsType port, en_dioPinsType pin, u8_en_di
  18e:	80 95       	com	r24
  190:	82 23       	and	r24, r18
  192:	88 bb       	out	0x18, r24	; 24
-			}
-			return DIO_E_OK;
  194:	80 e0       	ldi	r24, 0x00	; 0
  196:	08 95       	ret
-		}
-		else if (port == portc)
  198:	82 30       	cpi	r24, 0x02	; 2
  19a:	d9 f4       	brne	.+54     	; 0x1d2 <DIO_writePIN+0xb4>
-		{
-			if (state == STD_HIGH)
  19c:	41 30       	cpi	r20, 0x01	; 1
  19e:	61 f4       	brne	.+24     	; 0x1b8 <DIO_writePIN+0x9a>
-			{
-				WR_PORT_C |= (1U << pin);
  1a0:	25 b3       	in	r18, 0x15	; 21
  1a2:	81 e0       	ldi	r24, 0x01	; 1
  1a4:	90 e0       	ldi	r25, 0x00	; 0
@@ -347,19 +256,8 @@ u8_en_dioErrors DIO_writePIN (en_dioPortsType port, en_dioPinsType pin, u8_en_di
  1ae:	e2 f7       	brpl	.-8      	; 0x1a8 <DIO_writePIN+0x8a>
  1b0:	82 2b       	or	r24, r18
  1b2:	85 bb       	out	0x15, r24	; 21
-			}
-			else{
-				WR_PORT_C &= ~(1U << pin);
-			}
-			return DIO_E_OK;
  1b4:	80 e0       	ldi	r24, 0x00	; 0
  1b6:	08 95       	ret
-			if (state == STD_HIGH)
-			{
-				WR_PORT_C |= (1U << pin);
-			}
-			else{
-				WR_PORT_C &= ~(1U << pin);
  1b8:	25 b3       	in	r18, 0x15	; 21
  1ba:	81 e0       	ldi	r24, 0x01	; 1
  1bc:	90 e0       	ldi	r25, 0x00	; 0
@@ -371,20 +269,12 @@ u8_en_dioErrors DIO_writePIN (en_dioPortsType port, en_dioPinsType pin, u8_en_di
  1c8:	80 95       	com	r24
  1ca:	82 23       	and	r24, r18
  1cc:	85 bb       	out	0x15, r24	; 21
-			}
-			return DIO_E_OK;
  1ce:	80 e0       	ldi	r24, 0x00	; 0
  1d0:	08 95       	ret
-		}
-		else if (port == portd)
  1d2:	83 30       	cpi	r24, 0x03	; 3
  1d4:	e9 f4       	brne	.+58     	; 0x210 <DIO_writePIN+0xf2>
-		{
-			if (state == STD_HIGH)
  1d6:	41 30       	cpi	r20, 0x01	; 1
  1d8:	61 f4       	brne	.+24     	; 0x1f2 <DIO_writePIN+0xd4>
-			{
-				WR_PORT_D |= (1U << pin);
  1da:	22 b3       	in	r18, 0x12	; 18
  1dc:	81 e0       	ldi	r24, 0x01	; 1
  1de:	90 e0       	ldi	r25, 0x00	; 0
@@ -395,19 +285,8 @@ u8_en_dioErrors DIO_writePIN (en_dioPortsType port, en_dioPinsType pin, u8_en_di
  1e8:	e2 f7       	brpl	.-8      	; 0x1e2 <DIO_writePIN+0xc4>
  1ea:	82 2b       	or	r24, r18
  1ec:	82 bb       	out	0x12, r24	; 18
-			}
-			else{
-				WR_PORT_D &= ~(1U << pin);
-			}
-			return DIO_E_OK;
  1ee:	80 e0       	ldi	r24, 0x00	; 0
  1f0:	08 95       	ret
-			if (state == STD_HIGH)
-			{
-				WR_PORT_D |= (1U << pin);
-			}
-			else{
-				WR_PORT_D &= ~(1U << pin);
  1f2:	22 b3       	in	r18, 0x12	; 18
  1f4:	81 e0       	ldi	r24, 0x01	; 1
  1f6:	90 e0       	ldi	r25, 0x00	; 0
@@ -419,40 +298,14 @@ u8_en_dioErrors DIO_writePIN (en_dioPortsType port, en_dioPinsType pin, u8_en_di
  202:	80 95       	com	r24
  204:	82 23       	and	r24, r18
  206:	82 bb       	out	0x12, r24	; 18
-			}
-			return DIO_E_OK;
  208:	80 e0       	ldi	r24, 0x00	; 0
  20a:	08 95       	ret
-			return DIO_InvalidPort;
-		}
-		
-	}
-	else{
-		return DIO_InvalidPin;
  20c:	81 e0       	ldi	r24, 0x01	; 1
  20e:	08 95       	ret
-			}
-			return DIO_E_OK;
-		}
-		else
-		{
-			return DIO_InvalidPort;
  210:	82 e0       	ldi	r24, 0x02	; 2
-		
-	}
-	else{
-		return DIO_InvalidPin;
-	}
-}
  212:	08 95       	ret
 
 00000214 <spi_init>:
-		DIO_init (spi_slave_config->spi_slave_port, spi_slave_config->spi_slave_pin, STD_OUTPUT);
-		DIO_writePIN (spi_slave_config->spi_slave_port, spi_slave_config->spi_slave_pin, STD_HIGH);
-		
-	}
-	return ret;
-}
  214:	cf 93       	push	r28
  216:	df 93       	push	r29
  218:	00 97       	sbiw	r24, 0x00	; 0
@@ -557,62 +410,28 @@ u8_en_dioErrors DIO_writePIN (en_dioPortsType port, en_dioPinsType pin, u8_en_di
  2f0:	08 95       	ret
 
 000002f2 <spi_write>:
-
-SPIErrorsType spi_write(uint8_t *data){
-	SPIErrorsType ret = E_OK;
-	if(data == NULL){
  2f2:	00 97       	sbiw	r24, 0x00	; 0
  2f4:	41 f0       	breq	.+16     	; 0x306 <spi_write+0x14>
-		ret =E_NOT_OK;
-	}
-	else{
-		uint8_t flush=0;
-		SPDR_ADD = *data;
  2f6:	fc 01       	movw	r30, r24
  2f8:	80 81       	ld	r24, Z
  2fa:	8f b9       	out	0x0f, r24	; 15
-		while(READ_BIT(SPSR_ADD,SPI_SPIF) == 0);
  2fc:	77 9b       	sbis	0x0e, 7	; 14
  2fe:	fe cf       	rjmp	.-4      	; 0x2fc <spi_write+0xa>
-		flush = SPDR_ADD;
  300:	8f b1       	in	r24, 0x0f	; 15
-	}
-	return ret;
-}
-
-SPIErrorsType spi_write(uint8_t *data){
-	SPIErrorsType ret = E_OK;
  302:	81 e0       	ldi	r24, 0x01	; 1
  304:	08 95       	ret
-	if(data == NULL){
-		ret =E_NOT_OK;
  306:	80 e0       	ldi	r24, 0x00	; 0
-		flush = SPDR_ADD;
-		
-
-	}
-	return ret;
-}
  308:	08 95       	ret
 
 0000030a <__vector_14>:
-
-static volatile uint8_t u8_sg_dataTransimted;
-static volatile uint8_t u8_sg_dataRecieved;
-
-ISR(USART_UDRE_vect)
-{
  30a:	1f 92       	push	r1
  30c:	0f 92       	push	r0
  30e:	0f b6       	in	r0, 0x3f	; 63
  310:	0f 92       	push	r0
  312:	11 24       	eor	r1, r1
  314:	8f 93       	push	r24
-
-	UDR= u8_sg_dataTransimted;
  316:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <u8_sg_dataTransimted>
  31a:	8c b9       	out	0x0c, r24	; 12
-}
  31c:	8f 91       	pop	r24
  31e:	0f 90       	pop	r0
  320:	0f be       	out	0x3f, r0	; 63
@@ -621,20 +440,14 @@ ISR(USART_UDRE_vect)
  326:	18 95       	reti
 
 00000328 <__vector_13>:
-
-ISR(USART_RXC_vect)
-{
  328:	1f 92       	push	r1
  32a:	0f 92       	push	r0
  32c:	0f b6       	in	r0, 0x3f	; 63
  32e:	0f 92       	push	r0
  330:	11 24       	eor	r1, r1
  332:	8f 93       	push	r24
-
-	u8_sg_dataRecieved= UDR;
  334:	8c b1       	in	r24, 0x0c	; 12
  336:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <u8_sg_dataRecieved>
-}
  33a:	8f 91       	pop	r24
  33c:	0f 90       	pop	r0
  33e:	0f be       	out	0x3f, r0	; 63

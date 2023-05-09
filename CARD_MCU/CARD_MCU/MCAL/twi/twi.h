@@ -16,8 +16,8 @@ u8_twiErrorType TWI_start(void);
 u8_twiErrorType TWI_repeated_start(void);
 u8_twiErrorType TWI_stop(void);
 u8_twiErrorType TWI_setAddress(uint8_t u8_address,uint8_t u8_rw);
-u8_twiErrorType TWI_wrtie(uint8_t u8_address, uint8_t u8_data);
-u8_twiErrorType TWI_read(uint8_t u8_address, uint8_t* u8_data , uint8_t u8_ack);
+u8_twiErrorType TWI_wrtie(uint8_t u8_data);
+u8_twiErrorType TWI_read(uint8_t* u8_data , uint8_t u8_ack);
 
 
 
