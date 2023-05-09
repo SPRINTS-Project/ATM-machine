@@ -106,26 +106,48 @@ u8_twiErrorType TWI_stop(void)
 	return u8_ret_val;
 }
 
-u8_twiErrorType TWI_wrtie(uint8_t u8_address, uint8_t u8_data)
+
+
+u8_twiErrorType TWI_setAddress(uint8_t u8_address,uint8_t u8_rw)
 {
 	u8_twiErrorType u8_ret_val = TWI_ERROR_OK;
 	if (u8_gs_twi_state == INIT)
 	{
-		TWDR = u8_address + 0;
-		TWCR = (1<<TWINT)|(1<<TWEN);
-		while ((TWCR & (1<<TWINT))==0);
-		if (TWI_get_status() == SLA_W_ACK_STATE || TWI_get_status() == SLA_W_NACK_STATE)
+		if (u8_rw == READ || u8_rw == WRITE)
 		{
-			TWDR = u8_data;
+			TWDR = u8_address + u8_rw;
 			TWCR = (1<<TWINT)|(1<<TWEN);
 			while ((TWCR & (1<<TWINT))==0);
-			if (TWI_get_status() == DATA_W_ACK_STATE || TWI_get_status() == DATA_W_NACK_STATE)
+			if (TWI_get_status() == SLA_W_ACK_STATE || TWI_get_status() == SLA_W_NACK_STATE)
 			{
 				// do nothing
 			}
 			else{
 				u8_ret_val = TWI_ERROR_NOT_OK;
 			}
+		}
+		else
+		{
+			u8_ret_val = TWI_ERROR_NOT_OK;
+		}
+	}
+	else{
+		u8_ret_val = TWI_ERROR_NOT_OK;
+	}
+	return u8_ret_val;
+}
+
+u8_twiErrorType TWI_wrtie(uint8_t u8_address, uint8_t u8_data)
+{
+	u8_twiErrorType u8_ret_val = TWI_ERROR_OK;
+	if (u8_gs_twi_state == INIT)
+	{
+		TWDR = u8_data;
+		TWCR = (1<<TWINT)|(1<<TWEN);
+		while ((TWCR & (1<<TWINT))==0);
+		if (TWI_get_status() == DATA_W_ACK_STATE || TWI_get_status() == DATA_W_NACK_STATE)
+		{
+			// do nothing
 		}
 		else{
 			u8_ret_val = TWI_ERROR_NOT_OK;
@@ -141,31 +163,22 @@ u8_twiErrorType TWI_read(uint8_t u8_address, uint8_t* u8_data , uint8_t u8_ack)
 	u8_twiErrorType u8_ret_val = TWI_ERROR_OK;
 	if (u8_gs_twi_state == INIT)
 	{
-		TWDR = u8_address + 1;
-		TWCR = (1<<TWINT)|(1<<TWEN);
-		while ((TWCR & (1<<TWINT))==0);
-		if (TWI_get_status() == SLA_R_ACK_STATE || TWI_get_status() == SLA_R_NACK_STATE)
+		if (u8_ack == ACK)
 		{
-			if (u8_ack == ACK)
-			{
-				TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWEA);
-			}
-			else if (u8_ack == NACK)
-			{
-				TWCR = (1<<TWINT)|(1<<TWEN);
-			}
-			else{
-				// do nothing
-			}
-			while ((TWCR & (1<<TWINT))==0);
-			* u8_data = TWDR;
-			if (TWI_get_status() == DATA_R_ACK_STATE || TWI_get_status() == DATA_R_NACK_STATE)
-			{
-				// do nothing
-			}
-			else{
-				u8_ret_val = TWI_ERROR_NOT_OK;
-			}
+			TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWEA);
+		}
+		else if (u8_ack == NACK)
+		{
+			TWCR = (1<<TWINT)|(1<<TWEN);
+		}
+		else{
+			// do nothing
+		}
+		while ((TWCR & (1<<TWINT))==0);
+		* u8_data = TWDR;
+		if (TWI_get_status() == DATA_R_ACK_STATE || TWI_get_status() == DATA_R_NACK_STATE)
+		{
+			// do nothing
 		}
 		else{
 			u8_ret_val = TWI_ERROR_NOT_OK;
